@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+
+    <h1> <%= typeOfDay %> </h1>
+
+    <h2>Here goes your Todolist</h2>
+    <ul>
+
+        <% for(let i = 0; i < newItem.length; i++) { %>
+            <li> <%= newItem[i] %> </li>
+        <% } %>
+
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" placeholder="Enter Todo" name="inputTodo" required>
+        <button type="submit" name="todoSubmit">Add Todo</button>
+    </form>
+
+</body>
+</html>
