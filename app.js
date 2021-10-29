@@ -1,6 +1,7 @@
 
 
 const express = require("express");
+const date = require(__dirname + "/local_node_modules/date.js");
 
 
 const app = express();
@@ -10,22 +11,13 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let todos = [];
-let workTodos = [];
+const todos = []; // we can modify the const array but can't reassign it to a new array
+const workTodos = [];
 
 
 app.get("/", function(req, res) {
 
-    let date = new Date();
-
-    let options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-
-    let today = date.toLocaleDateString("en-US", options);
+    let today = date.today(); // using local module
 
     res.render("list", { // This assumes a views directory containing an list.ejs page.
         listTitle: today,  // key(inside ejs) - value(current value) pair
