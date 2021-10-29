@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <h1> <%= typeOfDay %> </h1>
+    <div class="box" id="heading">
+        <h1> <%= typeOfDay %> </h1>
+    </div>
 
-    <h2>Here goes your Todolist</h2>
-    <ul>
-
+    <div class="box">
         <% for(let i = 0; i < newItem.length; i++) { %>
-            <li> <%= newItem[i] %> </li>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= newItem[i] %> </p>
+            </div>
         <% } %>
 
-    </ul>
+        <form action="/" method="post">
+            <input type="text" placeholder="New Todo" name="inputTodo" autocomplete="off" required>
+            <button type="submit" name="todoSubmit">+</button>
+        </form>
 
-    <form action="/" method="post">
-        <input type="text" placeholder="Enter Todo" name="inputTodo" required>
-        <button type="submit" name="todoSubmit">Add Todo</button>
-    </form>
+    </div>
 
 </body>
 </html>
