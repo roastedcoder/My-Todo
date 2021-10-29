@@ -6,5 +6,7 @@
     * we can also write js code by wrapping
     it using a particuler tag(<% js %>).
     * we must render views/html.ejs file by providing **all** of the keys present inside .ejs file
+    * we can also use layouts to apply same styles to different pages of website.
+    * used ejs to send dynamic values to request.body so that we can seperate data.
 
 **Node:** data will be lost on refreshing, since db is not used.

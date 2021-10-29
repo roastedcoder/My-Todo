@@ -11,6 +11,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let todos = [];
+let workTodos = [];
+
 
 app.get("/", function(req, res) {
 
@@ -26,18 +28,44 @@ app.get("/", function(req, res) {
     let today = date.toLocaleDateString("en-US", options);
 
     res.render("list", { // This assumes a views directory containing an list.ejs page.
-        typeOfDay: today,  // key(inside ejs) - value(current value) pair
+        listTitle: today,  // key(inside ejs) - value(current value) pair
         newItem: todos
     });
 });
 
 
 app.post("/", function(req, res) {
-    todos.push(req.body.inputTodo.toString());
 
-    // console.log(todos);
-    res.redirect("/");
+    if(req.body.todoSubmit == "Work") { // we are getting dynamic value using ejs.
+        workTodos.push(req.body.inputTodo.toString());
+        res.redirect("/work");
+    }
+    else {
+        todos.push(req.body.inputTodo.toString());
+        res.redirect("/");
+    }
 });
+
+
+app.get("/work", function(req, res) {
+    res.render("list", {
+        listTitle: "Work List",
+        newItem: workTodos
+    })
+});
+
+app.post("/work", function(req, res) {
+
+    let currWorkTodo = req.body.inputTodo.toString();
+    workTodos.push(currWorkTodo);
+
+    res.redirect("/work");
+});
+
+
+
+
+
 
 
 app.listen(3000, function() {
