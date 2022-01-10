@@ -9,5 +9,5 @@
     * we can also use layouts to apply same styles to different pages of website.
     * used ejs to send dynamic values to request.body so that we can seperate data.
 * we can create our own local module and export it using **exports**.
-
-**Node:** data will be lost on refreshing, since db is not used.
+* mongoDB is used as a local DB.
+* we can create and delete a todo.
