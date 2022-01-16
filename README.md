@@ -11,3 +11,5 @@
 * we can create our own local module and export it using **exports**.
 * mongoDB is used as a local DB.
 * we can create and delete a todo.
+* now we have used mongoDB to store our todos locally using mongoose library for node.js.
+* we can create multiple route using custom route parameters e.g. Work, Home, College to store todo in their catagory.
